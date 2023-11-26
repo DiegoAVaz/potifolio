@@ -1,0 +1,21 @@
+.home {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.app > .home {
+  display: none;
+}
+
+.app > .home:not(.splash-visible) {
+  display: block;
+}

@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+
+.container {
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.subContainer {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  background-color: #123b43;
+  box-shadow: 15px black;
+  padding: 0 10px;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.myName h1 {
+  font-size: 30px;
+}
+
+.myName h4 {
+  font-size: small;
+}
+
+.myName {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  color: #17c3eb;
+  font-family: "Gugi";
+}
+
+.navbar {
+  color: #17c3eb;
+  font-family: "Gugi";
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar ul li {
+  padding: 5px;
+}
+
+.command-line {
+  border: 1px solid #17c3eb;
+  background-color: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 20em;
+  animation: typeWriter 2s steps(40) forwards;
+}
+
+@keyframes typeWriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20em;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
