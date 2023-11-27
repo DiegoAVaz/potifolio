@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Source+Code+Pro&display=swap");
 
 .container {
   width: 100%;
   height: calc(100vh - 90px);
+  min-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +17,10 @@
   height: 100%;
   background-color: #123b43;
   box-shadow: 15px black;
-  padding: 0 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
   -webkit-animation-duration: 1s;
@@ -25,17 +29,47 @@
   animation-fill-mode: both;
 }
 
+.rightSection {
+  width: 95%;
+  min-height: 300px;
+}
+
+@media (max-width: 780px) {
+  .subContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rightSection {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+.leftSection {
+  width: 50%;
+  min-width: 275px;
+  min-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .myName h1 {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .myName h4 {
-  font-size: small;
+  font-size: smaller;
 }
 
 .myName {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   flex-direction: row;
   color: #17c3eb;
   font-family: "Gugi";
@@ -48,22 +82,92 @@
 
 .navbar ul {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 0 20px;
 }
 
 .navbar ul li {
   padding: 5px;
+  margin-right: 5px;
+}
+
+@media (max-width: 780px) {
+  .leftSection {
+    width: 100%;
+    height: 50%;
+    justify-content: flex-start;
+  }
 }
 
 .command-line {
   border: 1px solid #17c3eb;
   background-color: black;
   color: white;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Source Code Pro", monospace;
   padding: 10px;
-  overflow: hidden;
+  overflow-y: auto;
+  min-height: 15vh;
+  height: auto;
   white-space: nowrap;
   width: 20em;
-  animation: typeWriter 2s steps(40) forwards;
+  max-width: 90%;
+  margin: 0;
+  animation: typeWriter 2s steps(40) forwards blinkCursor 1s infinite;
+}
+
+.indentation {
+  display: inline-block;
+  width: 1em;
+}
+
+.rightSectionContainer {
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  margin-top: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 780px) {
+  .subContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.cursor {
+  font-size: 1em;
+  animation: blinkCursor 1s infinite;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #17c3eb;
+  }
 }
 
 @keyframes typeWriter {

@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Source+Code+Pro&display=swap");
+
+.redesIcons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.redesIcons svg {
+  color: #17c3eb;
+  height: 20vh;
+  width: 20vw;
+  cursor: pointer;
+  margin: 20px;
+}
