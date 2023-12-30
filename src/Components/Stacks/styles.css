@@ -1,0 +1,44 @@
+.stacksContainer {
+  text-align: center;
+}
+
+.stacksIcons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: #17c3eb;
+}
+
+.stackIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  width: 52px;
+}
+
+.stackIcon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.stackIcon p {
+  margin-top: 5px;
+}
+
+/* Ajustes para telas menores que 515px */
+@media screen and (max-width: 515px) {
+  .stackIcon {
+    margin: 10px;
+    width: 40px;
+  }
+
+  .stackIcon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stackIcon p {
+    font-size: 0.7em;
+  }
+}

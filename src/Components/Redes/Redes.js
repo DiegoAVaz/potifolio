@@ -6,10 +6,10 @@ function Redes() {
   return (
     <>
       <div className="redesIcons">
-        <a href="#">
+        <a href="https://www.linkedin.com/in/diego-alves-vaz-dev/">
           <CiLinkedin />
         </a>
-        <a href="#">
+        <a href="https://github.com/DiegoAVaz">
           <FaGithub />
         </a>
       </div>

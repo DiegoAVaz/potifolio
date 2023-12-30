@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Source+Code+Pro&display=swap");
+
+.projetos {
+  color: #17c3eb;
+  font-family: "Gugi";
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  cursor: pointer;
+}
