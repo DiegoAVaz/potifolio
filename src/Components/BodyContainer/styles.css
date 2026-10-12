@@ -12,6 +12,7 @@
 }
 
 .subContainer {
+  box-sizing: border-box;
   border: 1px solid #17c3eb;
   width: 100%;
   height: 100%;
@@ -30,7 +31,8 @@
 }
 
 .rightSection {
-  width: 95%;
+  flex: 1;
+  min-width: 0;
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -47,13 +49,13 @@
 
   .rightSection {
     width: 100%;
-    height: 50%;
+    flex: none;
   }
 }
 
 .leftSection {
   width: 50%;
-  min-width: 275px;
+  min-width: 0;
   min-height: 200px;
   overflow-y: auto;
   display: flex;
@@ -75,6 +77,7 @@
   align-items: baseline;
   justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
   color: #17c3eb;
   font-family: "Gugi";
 }
@@ -90,20 +93,25 @@
 
 .navbar ul {
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 70%;
-  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
   padding: 0;
-  margin-top: 0;
-  margin: auto;
+  margin: 0;
 }
 
 .navbar ul li {
-  padding: 10px;
+  min-width: 0;
+}
+
+.navbar button {
+  box-sizing: border-box;
+  padding: 10px 4px;
   width: 100%;
-  height: 100%;
+  min-height: 44px;
+  color: inherit;
+  font: inherit;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,31 +123,50 @@
   border-radius: 3px;
 }
 
-.navbar ul li:hover::before,
-.navbar ul li:hover::after {
-  opacity: 1;
-}
-
-.navbar ul li:hover {
+.navbar button:hover,
+.navbar button.active {
   color: black;
   text-shadow: none;
   background-color: #17c3eb;
   cursor: pointer;
 }
 
+.navbar button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -4px;
+}
+
 @media (max-width: 780px) {
+  .container {
+    height: auto;
+    min-height: calc(100vh - 90px);
+    padding: 12px;
+  }
+
+  .subContainer {
+    gap: 12px;
+  }
+
   .leftSection {
     width: 100%;
-    height: 50%;
+    gap: 12px;
     justify-content: space-around;
   }
 
   .navbar {
-    font-size: small;
+    font-size: clamp(10px, 3vw, 13px);
+    margin-top: 0;
+  }
+
+  .rightSection .rightSectionContainer {
+    min-height: 300px;
+    height: auto;
+    margin: 0;
   }
 }
 
 .command-line {
+  box-sizing: border-box;
   border: 1px solid #17c3eb;
   background-color: black;
   color: white;
@@ -155,12 +182,17 @@
   animation: typeWriter 2s steps(40) forwards blinkCursor 1s infinite;
 }
 
+.command-line pre {
+  overflow-wrap: anywhere;
+}
+
 .indentation {
   display: inline-block;
   width: 1em;
 }
 
 .rightSectionContainer {
+  box-sizing: border-box;
   width: 95%;
   height: 95%;
   margin: auto;
@@ -169,6 +201,29 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+}
+
+.rightSectionContainer > * {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 781px) {
+  .leftSection {
+    width: 35%;
+    flex-shrink: 0;
+  }
+
+  .navbar {
+    flex-shrink: 0;
+  }
+
+  .rightSectionContainer {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+  }
 }
 
 @media (max-width: 780px) {

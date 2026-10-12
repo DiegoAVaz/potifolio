@@ -75,12 +75,25 @@ function BodyContainer() {
           </div>
         </section>
         <section className="rightSection">
-          <nav className="navbar">
+          <nav className="navbar" aria-label="Seções do portfólio">
             <ul>
-              <li onClick={() => setSelectedNavItem("Home")}>Home</li>
-              <li onClick={() => setSelectedNavItem("Projetos")}>Projetos</li>
-              <li onClick={() => setSelectedNavItem("stacks")}>Stacks</li>
-              <li onClick={() => setSelectedNavItem("Contato")}>Contato</li>
+              {[
+                { id: "Home", label: "Home" },
+                { id: "Projetos", label: "Projetos" },
+                { id: "stacks", label: "Stacks" },
+                { id: "Contato", label: "Contato" },
+              ].map(({ id, label }) => (
+                <li key={id}>
+                  <button
+                    type="button"
+                    className={selectedNavItem === id ? "active" : ""}
+                    aria-current={selectedNavItem === id ? "page" : undefined}
+                    onClick={() => setSelectedNavItem(id)}
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </nav>
 
